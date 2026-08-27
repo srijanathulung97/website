@@ -1,5 +1,5 @@
 /* ==========================================================================
-   COMPACT & ISOLATED WELCOME TICKER
+   COMPACT & SLOWER WELCOME TICKER
    ========================================================================== */
 .notice-ticker-wrapper {
   background-color: #003893;
@@ -10,11 +10,16 @@
   font-family: inherit;
   flex-shrink: 0;
   line-height: 1;
+
+  /* ELIMINATE GAPS ABOVE AND BELOW TICKER */
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
 }
 
 .notice-ticker-container {
   max-width: 1400px;
-  height: 28px;
+  height: 24px !important; /* Reduced from 28px to minimize gap */
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
@@ -23,7 +28,7 @@
 }
 
 /* ==========================================================================
-   TICKER BADGE & PULSE ANIMATION
+   TICKER BADGE & PULSE
    ========================================================================== */
 .ticker-badge {
   background-color: #d97706;
@@ -31,14 +36,14 @@
   font-weight: 800;
   font-size: 10px;
   letter-spacing: 0.5px;
-  padding: 2px 7px;
+  padding: 1px 6px;
   border-radius: 3px;
   display: flex;
   align-items: center;
   gap: 5px;
   white-space: nowrap;
   z-index: 2;
-  height: 18px;
+  height: 16px;
   box-sizing: border-box;
 }
 
@@ -66,7 +71,7 @@
 }
 
 /* ==========================================================================
-   SCROLLING TRACK
+   SCROLLING TRACK (SLOWED DOWN)
    ========================================================================== */
 .ticker-track-container {
   flex: 1;
@@ -83,7 +88,9 @@
   display: flex;
   align-items: center;
   white-space: nowrap;
-  animation: ticker-scroll 24s linear infinite;
+  
+  /* SLOWER SPEED: Change 40s to 50s for even slower movement */
+  animation: ticker-scroll 40s linear infinite;
 }
 
 .ticker-track:hover {
@@ -104,7 +111,7 @@
    TICKER TEXT & SEPARATORS
    ========================================================================== */
 .ticker-text {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   padding: 0 4px;
   color: #e2e8f0;
@@ -135,13 +142,13 @@
   font-size: 10px;
   font-weight: 700;
   white-space: nowrap;
-  padding: 2px 8px;
+  padding: 1px 7px;
   border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.18);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all 0.2s ease;
   z-index: 2;
-  height: 18px;
+  height: 16px;
   display: inline-flex;
   align-items: center;
 }
@@ -156,7 +163,7 @@
    ========================================================================== */
 @media (max-width: 768px) {
   .notice-ticker-container {
-    height: 26px;
+    height: 22px !important;
     padding: 0 10px;
   }
 

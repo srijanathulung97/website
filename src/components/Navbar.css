@@ -1,22 +1,26 @@
 /* ==========================================================================
-   GLOBAL NAVBAR STYLES
+   1. GLOBAL NAVBAR CONTAINER (COMPACT SPACING)
    ========================================================================== */
-.main-navbar {
+.main-navbar,
+.navbar,
+.main-header {
   background-color: #ffffff;
   border-bottom: 2px solid #e5e7eb;
   position: relative;
   z-index: 999;
   width: 100%;
+  margin: 0 !important;
+  padding: 4px 0 !important;
+  min-height: auto !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0; /* Prevents flex parents from squeezing navbar height */
+  flex-shrink: 0;
 }
 
 .navbar-container {
   width: 100%;
   max-width: 1400px;
-  min-height: 90px; /* Locks navbar to full vertical height */
   margin: 0 auto;
-  padding: 16px 24px;
+  padding: 4px 24px !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,51 +28,65 @@
 }
 
 /* ==========================================================================
-   LOGO STYLES (Enlarged & Sharp)
+   2. LOGO STYLES (ENLARGED & HIGH-CLARITY)
    ========================================================================== */
-.navbar-logo a {
+.navbar-logo a,
+.navbar-brand {
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding: 2px 0;
 }
 
-.navbar-logo img {
-  height: clamp(65px, 5.5vw, 90px);
+.navbar-logo img,
+.navbar-brand img,
+.logo-img {
+  height: clamp(58px, 5vw, 72px) !important;
   width: auto;
-  max-width: 340px;
+  max-width: 380px;
   display: block;
   object-fit: contain;
 
-  /* Sharp rendering for SVG logos */
+  /* Maximum image sharpness & clarity settings */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  image-rendering: pixelated;
 
-  /* GPU anti-aliasing */
+  /* Hardware acceleration to remove blur on retina displays */
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
+  will-change: transform;
+  
   transition: transform 0.25s ease;
 }
 
-.navbar-logo img:hover {
-  transform: scale(1.03) translateZ(0);
+.navbar-logo img:hover,
+.navbar-brand img:hover,
+.logo-img:hover {
+  transform: scale(1.02) translateZ(0);
 }
 
 /* ==========================================================================
-   NAVIGATION LINKS & ANIMATIONS
+   3. NAVIGATION LINKS (TALL & BOLD TYPOGRAPHY)
    ========================================================================== */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2vw, 32px);
+  gap: clamp(16px, 2.2vw, 32px);
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
   color: #1e293b;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
   text-decoration: none;
-  padding: 10px 0;
+  padding: 6px 0;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -82,7 +100,7 @@
   transform: translateY(-1px);
 }
 
-/* ANIMATED ARROW */
+/* Animated Caret Arrow */
 .arrow {
   font-size: 13px;
   color: #003893;
@@ -91,24 +109,25 @@
 }
 
 .nav-dropdown:hover .arrow {
-  transform: translateY(3px) rotate(180deg);
+  transform: translateY(2px) rotate(180deg);
 }
 
 /* ==========================================================================
-   DROPDOWN MENUS
+   4. DROPDOWN MENUS
    ========================================================================== */
 .nav-dropdown {
   position: relative;
   display: inline-block;
 }
 
+/* Invisible hover bridge zone */
 .nav-dropdown::after {
   content: '';
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  height: 14px;
+  height: 12px;
 }
 
 .dropdown-content {
@@ -116,7 +135,7 @@
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 4px);
   left: 0;
   background-color: #ffffff;
   min-width: 210px;
@@ -125,7 +144,7 @@
   border-radius: 6px;
   z-index: 1000;
   overflow: hidden;
-  transform: translateY(10px);
+  transform: translateY(8px);
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
@@ -137,7 +156,7 @@
 
 .dropdown-content a {
   display: block;
-  padding: 12px 18px;
+  padding: 10px 18px;
   color: #333333;
   text-decoration: none;
   font-size: 15px;
@@ -157,7 +176,7 @@
 }
 
 /* ==========================================================================
-   HAMBURGER TOGGLE
+   5. HAMBURGER TOGGLE (MOBILE)
    ========================================================================== */
 .hamburger-btn {
   display: none;
@@ -177,8 +196,10 @@
 }
 
 /* ==========================================================================
-   BREAKPOINTS: TABLET & MOBILE (Under 1024px)
+   6. RESPONSIVE BREAKPOINTS
    ========================================================================== */
+
+/* TABLETS & MOBILE (Under 1024px) */
 @media (max-width: 1024px) {
   .hamburger-btn {
     display: flex;
@@ -193,9 +214,9 @@
     background-color: #ffffff;
     flex-direction: column;
     align-items: flex-start;
-    padding: 20px 6%;
+    padding: 16px 6%;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    gap: 12px;
+    gap: 10px;
     box-sizing: border-box;
   }
 
@@ -230,9 +251,7 @@
   }
 }
 
-/* ==========================================================================
-   BREAKPOINTS: ULTRA-WIDE MONITORS (1920px+)
-   ========================================================================== */
+/* ULTRA-WIDE MONITORS (1920px+) */
 @media (min-width: 1920px) {
   .navbar-container {
     max-width: 1650px;

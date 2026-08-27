@@ -8,13 +8,15 @@
   z-index: 999;
   width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0; /* Prevents flex parents from squeezing navbar height */
 }
 
 .navbar-container {
   width: 100%;
   max-width: 1400px;
+  min-height: 90px; /* Locks navbar to full vertical height */
   margin: 0 auto;
-  padding: 16px 24px; /* Increased vertical padding to support larger logo */
+  padding: 16px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,18 +33,17 @@
 }
 
 .navbar-logo img {
-  /* Increased height scaling for a noticeably larger, clearer appearance */
-  height: clamp(65px, 5.5vw, 90px); 
+  height: clamp(65px, 5.5vw, 90px);
   width: auto;
-  max-width: 340px; 
+  max-width: 340px;
   display: block;
   object-fit: contain;
 
-  /* Force crisp edge rendering for SVGs */
+  /* Sharp rendering for SVG logos */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  
-  /* Anti-aliasing GPU hardware acceleration */
+
+  /* GPU anti-aliasing */
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease;
@@ -63,7 +64,7 @@
 
 .nav-item {
   color: #1e293b;
-  font-size: clamp(15px, 1.1vw, 18px);
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
   text-decoration: none;
@@ -71,8 +72,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  position: relative;
   white-space: nowrap;
+  position: relative;
   transition: color 0.25s ease, transform 0.2s ease;
 }
 
@@ -155,7 +156,9 @@
   padding-left: 22px;
 }
 
-/* HAMBURGER TOGGLE */
+/* ==========================================================================
+   HAMBURGER TOGGLE
+   ========================================================================== */
 .hamburger-btn {
   display: none;
   flex-direction: column;

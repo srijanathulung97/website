@@ -1,0 +1,166 @@
+/* ==========================================================================
+   COMPACT & ISOLATED WELCOME TICKER
+   ========================================================================== */
+.notice-ticker-wrapper {
+  background-color: #003893;
+  color: #ffffff;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: inherit;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.notice-ticker-container {
+  max-width: 1400px;
+  height: 28px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   TICKER BADGE & PULSE ANIMATION
+   ========================================================================== */
+.ticker-badge {
+  background-color: #d97706;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  z-index: 2;
+  height: 18px;
+  box-sizing: border-box;
+}
+
+.badge-pulse {
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  animation: pulse-ring 1.5s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* ==========================================================================
+   SCROLLING TRACK
+   ========================================================================== */
+.ticker-track-container {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0 12px;
+  mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15px, black 95%, transparent);
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: ticker-scroll 24s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-content-group {
+  display: flex;
+  align-items: center;
+}
+
+/* ==========================================================================
+   TICKER TEXT & SEPARATORS
+   ========================================================================== */
+.ticker-text {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 4px;
+  color: #e2e8f0;
+}
+
+.ticker-text.highlight {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ticker-text.accent {
+  color: #fde047;
+  font-weight: 600;
+}
+
+.ticker-separator {
+  color: #60a5fa;
+  margin: 0 8px;
+  font-size: 10px;
+}
+
+/* ==========================================================================
+   ACTION BUTTON
+   ========================================================================== */
+.ticker-btn {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.2s ease;
+  z-index: 2;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ticker-btn:hover {
+  background-color: #ffffff;
+  color: #003893;
+}
+
+/* ==========================================================================
+   BREAKPOINTS: TABLET & MOBILE (Under 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .notice-ticker-container {
+    height: 26px;
+    padding: 0 10px;
+  }
+
+  .ticker-btn {
+    display: none;
+  }
+}

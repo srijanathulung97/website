@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import './App.css';
 import NoticeTicker from './components/NoticeTicker';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Navbar/>
       <NoticeTicker/>
       <Home/>
+      <Footer/>
       
     </div>
   );

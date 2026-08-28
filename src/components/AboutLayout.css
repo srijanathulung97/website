@@ -1,0 +1,110 @@
+/* Layout Wrapper & Hero Banner */
+.about-layout-wrapper {
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 35px 0;
+  border-bottom: 1px solid #dee2e6;
+  animation: fadeInDown 0.4s ease-out;
+}
+.hero-banner .container {
+  padding-left: 35px;  /* Matches the 35px padding inside .about-card-container */
+  padding-right: 35px; /* Ensures right edge symmetry */
+}
+.hero-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0c1b40;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.content-wrapper {
+  padding: 40px 0;
+}
+
+.about-card-container {
+  background: #ffffff;
+  border: 1px solid #e3e6ea;
+  border-radius: 8px;
+  padding: 35px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Force Side-by-Side Alignment using CSS Grid */
+.about-grid-row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 35px;
+  align-items: start;
+}
+
+/* Sidebar Styles */
+.sidebar-menu {
+  border: 1px solid #e3e6ea;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.sidebar-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #ffffff;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333333;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sidebar-btn:last-child {
+  border-bottom: none;
+}
+
+.sidebar-btn .arrow {
+  color: #aaaaaa;
+  transition: transform 0.25s ease;
+}
+
+.sidebar-btn:hover {
+  background-color: #f8f9fa;
+  color: #003893;
+  padding-left: 22px;
+}
+
+.sidebar-btn:hover .arrow {
+  transform: translateX(4px);
+  color: #003893;
+}
+
+/* Active Selected Tab */
+.sidebar-btn.active {
+  background-color: #003893 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.sidebar-btn.active .arrow {
+  color: #ffffff !important;
+}
+
+/* Dynamic Right Content Animations */
+.key-animated {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Responsive Stacking for Mobile Devices */
+@media (max-width: 768px) {
+  .about-grid-row {
+    grid-template-columns: 1fr; /* Stacks vertically only on mobile screens */
+    gap: 25px;
+  }
+}

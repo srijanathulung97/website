@@ -1,183 +1,79 @@
-/* ==========================================================================
-   1. GLOBAL NAVBAR CONTAINER (COMPACT SPACING)
-   ========================================================================== */
-.main-navbar,
-.navbar,
-.main-header {
-  background-color: #ffffff;
-  border-bottom: 2px solid #e5e7eb;
-  position: relative;
-  z-index: 999;
+.main-navbar {
   width: 100%;
-  margin: 0 !important;
-  padding: 4px 0 !important;
-  min-height: auto !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  flex-shrink: 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1000;
 }
 
 .navbar-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 4px 24px !important;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
-}
-
-/* ==========================================================================
-   2. LOGO STYLES (ENLARGED & HIGH-CLARITY)
-   ========================================================================== */
-.navbar-logo a,
-.navbar-brand {
-  display: flex;
   align-items: center;
-  text-decoration: none;
-  padding: 2px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
 }
 
-.navbar-logo img,
-.navbar-brand img,
-.logo-img {
-  height: clamp(58px, 5vw, 72px) !important;
-  width: auto;
-  max-width: 380px;
+.navbar-logo img {
+  height: 45px;
   display: block;
-  object-fit: contain;
-
-  /* Maximum image sharpness & clarity settings */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-
-  /* Hardware acceleration to remove blur on retina displays */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  will-change: transform;
-  
-  transition: transform 0.25s ease;
 }
 
-.navbar-logo img:hover,
-.navbar-brand img:hover,
-.logo-img:hover {
-  transform: scale(1.02) translateZ(0);
-}
-
-/* ==========================================================================
-   3. NAVIGATION LINKS (TALL & BOLD TYPOGRAPHY)
-   ========================================================================== */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2.2vw, 32px);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 20px;
 }
 
 .nav-item {
-  color: #1e293b;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.2px;
+  color: #333333;
   text-decoration: none;
-  padding: 6px 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  position: relative;
-  transition: color 0.25s ease, transform 0.2s ease;
+  font-weight: 500;
+  font-size: 15px;
+  transition: color 0.2s;
 }
 
 .nav-item:hover {
   color: #003893;
-  transform: translateY(-1px);
 }
 
-/* Animated Caret Arrow */
-.arrow {
-  font-size: 13px;
-  color: #003893;
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.nav-dropdown:hover .arrow {
-  transform: translateY(2px) rotate(180deg);
-}
-
-/* ==========================================================================
-   4. DROPDOWN MENUS
-   ========================================================================== */
+/* Dropdown Handling */
 .nav-dropdown {
   position: relative;
-  display: inline-block;
-}
-
-/* Invisible hover bridge zone */
-.nav-dropdown::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 12px;
 }
 
 .dropdown-content {
-  display: block;
-  visibility: hidden;
-  opacity: 0;
+  display: none;
   position: absolute;
-  top: calc(100% + 4px);
+  top: 100%;
   left: 0;
   background-color: #ffffff;
-  min-width: 210px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  z-index: 1000;
+  min-width: 190px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
   overflow: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
-}
-
-.nav-dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .dropdown-content a {
-  display: block;
-  padding: 10px 18px;
-  color: #333333;
+  color: #444;
+  padding: 10px 16px;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 700;
-  border-bottom: 1px solid #f1f5f9;
-  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-}
-
-.dropdown-content a:last-child {
-  border-bottom: none;
+  display: block;
+  font-size: 14px;
+  transition: background 0.2s;
 }
 
 .dropdown-content a:hover {
-  background-color: #003893;
-  color: #ffffff;
-  padding-left: 22px;
+  background-color: #f5f5f5;
+  color: #003893;
 }
 
-/* ==========================================================================
-   5. HAMBURGER TOGGLE (MOBILE)
-   ========================================================================== */
+.nav-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobile Responsiveness */
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -185,75 +81,41 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 5px;
 }
 
 .hamburger-bar {
   width: 25px;
   height: 3px;
-  background-color: #003893;
+  background-color: #333;
   border-radius: 2px;
 }
 
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-
-/* TABLETS & MOBILE (Under 1024px) */
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .hamburger-btn {
     display: flex;
   }
 
   .nav-links {
     display: none;
+    flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #ffffff;
-    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     align-items: flex-start;
-    padding: 16px 6%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    gap: 10px;
-    box-sizing: border-box;
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  .nav-item {
-    font-size: 16px;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .nav-dropdown {
-    width: 100%;
-  }
-
   .dropdown-content {
     position: static;
-    visibility: visible;
-    opacity: 1;
-    transform: none;
     box-shadow: none;
-    border: none;
     padding-left: 15px;
-    min-width: 100%;
-    display: none;
-  }
-
-  .nav-dropdown:hover .dropdown-content {
     display: block;
-  }
-}
-
-/* ULTRA-WIDE MONITORS (1920px+) */
-@media (min-width: 1920px) {
-  .navbar-container {
-    max-width: 1650px;
   }
 }

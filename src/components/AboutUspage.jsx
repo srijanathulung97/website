@@ -4,11 +4,15 @@ import { aboutContent } from "../data/aboutData";
 
 export default function AboutUsPage() {
   const data = aboutContent.aboutUs;
+
   return (
     <AboutLayout>
-      <h2 className="title-navy">{data.title}</h2>
-      <p className="subtitle-gray">{data.subtitle}</p>
-      <p className="body-text">{data.description}</p>
+      <div className="about-content-pane">
+        <h2 className="title-navy">{data.title}</h2>
+        <p className="subtitle-gray">{data.subtitle}</p>
+        <hr className="divider-line" />
+        <p className="body-text">{data.description}</p>
+      </div>
     </AboutLayout>
   );
 }

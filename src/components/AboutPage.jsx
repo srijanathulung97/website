@@ -7,7 +7,12 @@ export default function AboutPage() {
     <AboutLayout>
       <h2 className="title-navy">About R.B.B Securities Company Limited</h2>
       <p className="subtitle-gray">Company Overview</p>
-      <p className="body-text">
+      
+      {/* Horizontal Divider Line */}
+      <hr className="divider-line" />
+      
+      {/* Justified Body Text */}
+      <p className="body-text" style={{ textAlign: 'justify' }}>
         As a wholly owned subsidiary of Rastriya Banijya Bank Limited (RBB), R.B.B. Securities Company Limited is a trusted stockbroker licensed by SEBON, NEPSE, and DP. Built on financial strength and reliability, we are committed to empowering investors with seamless trading and top-tier services.
       </p>
     </AboutLayout>

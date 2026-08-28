@@ -1,7 +1,6 @@
 /* Layout Wrapper & Hero Banner */
 .about-layout-wrapper {
   background-color: #f4f6f9;
-  min-height: 100vh;
 }
 
 .hero-banner {
@@ -11,7 +10,7 @@
   animation: fadeInDown 0.4s ease-out;
 }
 .hero-banner .container {
-  padding-left: 35px;  /* Matches the 35px padding inside .about-card-container */
+  padding-left: 100px;  /* Matches the 35px padding inside .about-card-container */
   padding-right: 35px; /* Ensures right edge symmetry */
 }
 .hero-title {
@@ -24,6 +23,11 @@
 
 .content-wrapper {
   padding: 40px 0;
+ 
+}
+.content-wrapper .container {
+  max-width: 1240px; /* Adjust this value down (e.g., 900px or 850px) to make it narrower */
+  margin: 0 auto;   /* Keeps the card centered on the page */
 }
 
 .about-card-container {

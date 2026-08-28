@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import HeroCarousel from './HeroCarousel';
+import NoticeModal from './NoticeModal';
 import './Home.css';
 
 // Asset imports
@@ -8,7 +9,6 @@ import dematDpImg from '../assets/demat and dp.jpg';
 import marketInsightImg from '../assets/market insight.avif';
 import chooseUsImg from '../assets/choose_us.png';
 
-// Service data structure for clean mapping
 const SERVICES = [
   {
     id: 'brokerage',
@@ -41,7 +41,9 @@ const FEATURES = [
 ];
 
 export default function Home() {
-  // Intersection Observer for scroll animations (re-triggers on scroll up & down)
+  const [showModal, setShowModal] = useState(true);
+
+  // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -64,6 +66,9 @@ export default function Home() {
 
   return (
     <main className="home-page">
+      {/* NOTICE MODAL (Only renders on home page load) */}
+      {showModal && <NoticeModal onClose={() => setShowModal(false)} />}
+
       {/* HERO CAROUSEL */}
       <HeroCarousel />
 

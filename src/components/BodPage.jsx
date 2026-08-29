@@ -1,104 +1,146 @@
 import React, { useState } from 'react';
 import AboutLayout from './AboutLayout';
-import { bodMembers } from './aboutData'; // Correct named import matching your file
+import './BodPage.css';
+
+const bodMembers = [
+  {
+    id: 1,
+    name: "Ms. / Mr.",
+    role: "Chairman",
+    department: "Board of Directors",
+    qualification: "MBS / MBA",
+    image: "/images/bod/chairman.jpg",
+    bio: " es as the Chairman of the Board of Directors, overseeing Serves as the Chairman of the Board of Directors, overseeing governance and strategy.",
+    isFeatured: true,
+  },
+  {
+    id: 2,
+    name: "Ms. Rajya Laxmi Khadgi",
+    role: "Director",
+    department: "Board of Directors",
+    qualification: "Master's Degree",
+    image: "/images/bod/rajya.jpg",
+     bio: " es as the Chairman of the Board of Directors, overseeing Serves as the Chairman of the Board of Directors, overseeing governance and strategy.",
+   isFeatured: false,
+  },
+  {
+    id: 3,
+    name: "Mr. Krishna Shah",
+    role: "Director",
+    department: "Board of Directors",
+    qualification: "Master's Degree",
+    image: "/images/bod/krishna.jpg",
+    bio: "Specializes in financial policy formulation and business growth direction.",
+    isFeatured: false,
+  },
+  {
+    id: 4,
+    name: "Ms. Gayatri Shrestha",
+    role: "Director",
+    department: "Board of Directors",
+    qualification: "Master's Degree",
+    image: "/images/bod/gayatri.jpg",
+    bio: "Expertise in compliance, capital markets, and corporate risk management.",
+    isFeatured: false,
+  },
+
+];
 
 export default function BodPage() {
   const [selectedMember, setSelectedMember] = useState(null);
 
-  // Assuming the first array item is the Chairman, and the rest are Directors
-  const chairman = bodMembers && bodMembers.length > 0 ? bodMembers[0] : null;
-  const directors = bodMembers && bodMembers.length > 1 ? bodMembers.slice(1) : [];
+  const chairman = bodMembers.find((member) => member.isFeatured);
+  const directors = bodMembers.filter((member) => !member.isFeatured);
 
   return (
-    <AboutLayout heroTitle="Board Of Directors">
-      {/* Chairman Row */}
-      {chairman && (
-        <div className="row justify-content-center g-4 mb-4">
-          <div className="col-12 col-sm-6 col-md-4">
-            <MemberCard data={chairman} onSelect={setSelectedMember} />
+    <AboutLayout>
+      <div className="bod-container key-animated">
+        {/* Header Title */}
+        <h2 className="title-navy">Board of Directors</h2>
+        <p className="subtitle-gray">Leadership & Governance</p>
+        <hr className="divider-line" />
+
+        {/* Chairman Top Section */}
+        {chairman && (
+          <div className="chairman-section">
+            <div
+              className="bod-card chairman-card"
+              onClick={() => setSelectedMember(chairman)}
+            >
+              <div className="avatar-circle">
+                <img
+                  src={chairman.image}
+                  alt={chairman.name}
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+              <h3 className="member-name red-highlight">{chairman.name}</h3>
+              <p className="member-role red-text">{chairman.role}</p>
+              <p className="member-dept">{chairman.department}</p>
+            </div>
           </div>
+        )}
+
+        {/* Directors 3-Column Grid */}
+        <div className="directors-grid">
+          {directors.map((member) => (
+            <div
+              key={member.id}
+              className="bod-card"
+              onClick={() => setSelectedMember(member)}
+            >
+              <div className="avatar-circle">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+              <h3 className="member-name">{member.name}</h3>
+              <p className="member-role red-text">{member.role}</p>
+              <p className="member-dept">{member.department}</p>
+            </div>
+          ))}
         </div>
-      )}
 
-      {/* Directors Row */}
-      <div className="row justify-content-center g-4">
-        {directors.map((director) => (
-          <div key={director.id || director.name} className="col-12 col-sm-6 col-md-4">
-            <MemberCard data={director} onSelect={setSelectedMember} />
+        {/* Bio Popup Modal */}
+        {selectedMember && (
+          <div className="modal-backdrop" onClick={() => setSelectedMember(null)}>
+            <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+              {/* Navy Blue Top Section */}
+              <div className="modal-navy-header">
+                <button
+                  className="modal-close-btn"
+                  onClick={() => setSelectedMember(null)}
+                >
+                  ✕
+                </button>
+                <div className="modal-header-content">
+                  <div className="modal-avatar">
+                    <img
+                      src={selectedMember.image}
+                      alt={selectedMember.name}
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  </div>
+                  <div className="modal-header-text">
+                    <h2>{selectedMember.name}</h2>
+                    <p className="modal-role">{selectedMember.role}</p>
+                    {selectedMember.qualification && (
+                      <p className="modal-qualification">{selectedMember.qualification}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Light Gray Bio Section */}
+              <div className="modal-body">
+                <p>{selectedMember.bio}</p>
+              </div>
+            </div>
           </div>
-        ))}
+        )}
       </div>
-
-      {/* Profile Modal */}
-      {selectedMember && (
-        <ProfileModal member={selectedMember} onClose={() => setSelectedMember(null)} />
-      )}
     </AboutLayout>
-  );
-}
-
-// Inline Sub-component: MemberCard
-function MemberCard({ data, onSelect }) {
-  if (!data) return null;
-  return (
-    <div 
-      className="team-card text-center p-3 border rounded shadow-sm h-100" 
-      onClick={() => onSelect(data)} 
-      style={{ cursor: 'pointer' }}
-    >
-      <div 
-        className="avatar-frame mx-auto mb-3" 
-        style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden' }}
-      >
-        <img 
-          src={data.img} 
-          alt={data.name} 
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-        />
-      </div>
-      <h5 className="fw-bold mb-1" style={{ fontSize: '16px', color: '#0c1b40' }}>{data.name}</h5>
-      <p className="text-danger small fw-semibold mb-1">{data.role}</p>
-      <span className="text-muted small">{data.dept}</span>
-    </div>
-  );
-}
-
-// Inline Sub-component: ProfileModal
-function ProfileModal({ member, onClose }) {
-  if (!member) return null;
-  return (
-    <div 
-      className="modal-backdrop show" 
-      onClick={onClose} 
-      style={{ 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        width: '100vw', 
-        height: '100vh', 
-        background: 'rgba(0,0,0,0.5)', 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        zIndex: 1050 
-      }}
-    >
-      <div 
-        className="modal-dialog-custom bg-white rounded overflow-hidden p-4" 
-        onClick={(e) => e.stopPropagation()} 
-        style={{ maxWidth: '500px', width: '90%' }}
-      >
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h4 className="m-0" style={{ color: '#0c1b40' }}>{member.name}</h4>
-          <button className="btn-close" onClick={onClose} aria-label="Close"></button>
-        </div>
-        <p className="text-danger fw-semibold mb-1">{member.role}</p>
-        <p className="text-muted small mb-3">{member.edu || member.dept}</p>
-        <hr />
-        <p className="text-secondary" style={{ fontSize: '14px', lineHeight: '1.6' }}>
-          {member.bio || 'No detailed biography available.'}
-        </p>
-      </div>
-    </div>
   );
 }

@@ -15,6 +15,7 @@ import BodPage from './components/BodPage';
 import TeamPage from './components/TeamPage';
 import CareerPage from './components/CareerPage';
 import NoticesPage from './components/NoticesPage';
+import FaqPage from './components/FaqPage';
 
 import './App.css';
 
@@ -36,9 +37,11 @@ export default function App() {
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/career" element={<CareerPage />} />
           
-          {/* Notices Routes (Handles both singular and plural paths) */}
           <Route path="/notices" element={<NoticesPage />} />
           <Route path="/notice" element={<NoticesPage />} />
+
+          <Route path="/faq" element={<FaqPage />} />
+          <Route path="/faqs" element={<FaqPage />} />
         </Routes>
       </main>
 

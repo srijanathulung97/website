@@ -16,6 +16,7 @@ import TeamPage from './components/TeamPage';
 import CareerPage from './components/CareerPage';
 import NoticesPage from './components/NoticesPage';
 import FaqPage from './components/FaqPage';
+import ContactPage from './components/ContactPage'; // 1. Imported ContactPage
 
 import './App.css';
 
@@ -42,6 +43,10 @@ export default function App() {
 
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/faqs" element={<FaqPage />} />
+
+          {/* 2. Added Contact Routes */}
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/contact-us" element={<ContactPage />} />
         </Routes>
       </main>
 

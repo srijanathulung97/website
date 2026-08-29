@@ -1,0 +1,173 @@
+/* --- Reset & Base Body Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-page {
+  background-color: #ffffff;
+  color: #333333;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- TOP BANNER --- */
+.contact-banner {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  background-size: cover;
+  padding: 25px 10%;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.banner-content {
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.banner-content h1 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+/* --- KEEP IN TOUCH SECTION --- */
+.keep-in-touch-section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #003893; /* Deep blue navy */
+  margin-bottom: 50px;
+  font-weight: 700;
+  animation: fadeInDown 1s ease-out forwards;
+}
+
+/* Grid Layout for 3 Columns */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Cards with Entry Animation */
+.info-card {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Staggering the load animation for each card */
+.info-grid .info-card:nth-child(1) { animation-delay: 0.2s; }
+.info-grid .info-card:nth-child(2) { animation-delay: 0.4s; }
+.info-grid .info-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Dark Circle Icon Wrappers */
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #0b2e4a; /* Dark navy circle background */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on icons */
+.info-card:hover .icon-wrapper {
+  transform: scale(1.15);
+  background-color: #003893;
+  box-shadow: 0 8px 20px rgba(12, 4, 69, 0.2);
+}
+
+.info-card p {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.info-card a {
+  color: #555555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-card a:hover {
+  color: #003893;
+  text-decoration: underline;
+}
+
+/* --- FIND US HERE SECTION --- */
+.find-us-section {
+  padding: 60px 10%;
+  background-color: #fcfcfc; 
+  text-align: center;
+  width: 100%;
+}
+
+.find-us-section .section-title {
+  padding: 0 20px;
+  margin-bottom: 40px;
+}
+
+.map-container {
+  width: 100%;       
+  margin: 0;          
+  padding: 0;
+  overflow: hidden;   
+  line-height: 0; /* Deletes browser-generated empty gaps below/above elements */
+}
+
+.map-container iframe {
+  width: 100% !important;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- RESPONSIVE DESIGN (For Mobile & Tablets) --- */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr; /* Switch to single column on mobile */
+    gap: 50px;
+  }
+  
+  .contact-banner {
+    text-align: center;
+    padding: 40px 5%;
+  }
+
+  .find-us-section {
+    padding: 40px 0 0 0;
+  }
+}

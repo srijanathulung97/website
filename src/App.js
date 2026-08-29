@@ -40,10 +40,10 @@ export default function App() {
           
           {/* 2. Added Services Routes */}
    <Route path="/services" element={<ServicesOverviewPage />} />
-          <Route path="/services/depository" element={<DepositoryPage />} />
-          <Route path="/services/brokerage" element={<BrokeragePage />} />
-          <Route path="/services/support" element={<SupportPage />} />
-          
+<Route path="/services/depository" element={<DepositoryPage />} />
+<Route path="/services/brokerage" element={<BrokeragePage />} />
+<Route path="/services/support" element={<SupportPage />} />
+
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/career" element={<CareerPage />} />
           

@@ -4,7 +4,7 @@ import ServicesLayout from './ServicesLayout';
 export default function BrokeragePage() {
   return (
     <ServicesLayout>
-      <div className="about-card-container key-animated">
+      <div className="about-card-container ">
         <h2 className="title-navy">Brokerage Services</h2>
         <p className="subtitle-gray">Online Trading Via TMS</p>
         <hr className="divider-line" />

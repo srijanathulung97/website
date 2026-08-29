@@ -14,6 +14,7 @@ import IntroductionPage from './components/IntroductionPage';
 import BodPage from './components/BodPage';
 import TeamPage from './components/TeamPage';
 import CareerPage from './components/CareerPage';
+import NoticesPage from './components/NoticesPage';
 
 import './App.css';
 
@@ -32,9 +33,12 @@ export default function App() {
           <Route path="/about/bod" element={<BodPage />} />
           <Route path="/about/team" element={<TeamPage />} />
           
-          {/* ✅ Corrected Career Route Paths */}
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/career" element={<CareerPage />} />
+          
+          {/* Notices Routes (Handles both singular and plural paths) */}
+          <Route path="/notices" element={<NoticesPage />} />
+          <Route path="/notice" element={<NoticesPage />} />
         </Routes>
       </main>
 

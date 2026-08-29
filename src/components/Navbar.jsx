@@ -54,9 +54,9 @@ export default function Navbar() {
               Our Services <span className="arrow">▾</span>
             </Link>
             <div className="dropdown-content">
-              <Link to="/services/demat" onClick={closeMobileMenu}>Depository Services</Link>
-              <Link to="/services/pms" onClick={closeMobileMenu}>Customer Support</Link>
+              <Link to="/services/depository" onClick={closeMobileMenu}>Depository Services</Link>
               <Link to="/services/brokerage" onClick={closeMobileMenu}>Brokerage Services</Link>
+              <Link to="/services/support" onClick={closeMobileMenu}>Customer Support</Link>
             </div>
           </div>
 

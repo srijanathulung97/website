@@ -13,10 +13,13 @@ import AboutPage from './components/AboutPage';
 import IntroductionPage from './components/IntroductionPage';
 import BodPage from './components/BodPage';
 import TeamPage from './components/TeamPage';
-import CareerPage from './components/CareerPage';
+import ServicesOverviewPage from './components/ServicesOverviewPage';
+import DepositoryPage from './components/DepositoryPage';
+import BrokeragePage from './components/BrokeragePage';
+import SupportPage from './components/SupportPage';import CareerPage from './components/CareerPage';
 import NoticesPage from './components/NoticesPage';
 import FaqPage from './components/FaqPage';
-import ContactPage from './components/ContactPage'; // 1. Imported ContactPage
+import ContactPage from './components/ContactPage';
 
 import './App.css';
 
@@ -35,6 +38,12 @@ export default function App() {
           <Route path="/about/bod" element={<BodPage />} />
           <Route path="/about/team" element={<TeamPage />} />
           
+          {/* 2. Added Services Routes */}
+   <Route path="/services" element={<ServicesOverviewPage />} />
+          <Route path="/services/depository" element={<DepositoryPage />} />
+          <Route path="/services/brokerage" element={<BrokeragePage />} />
+          <Route path="/services/support" element={<SupportPage />} />
+          
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/career" element={<CareerPage />} />
           
@@ -44,7 +53,6 @@ export default function App() {
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/faqs" element={<FaqPage />} />
 
-          {/* 2. Added Contact Routes */}
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/contact-us" element={<ContactPage />} />
         </Routes>

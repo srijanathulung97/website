@@ -1,0 +1,243 @@
+
+
+/* --- Global Container Styling --- */
+.career-main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Page Title Banner Section --- */
+.page-title-banner {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  padding: 25px 10%;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 40px;
+}
+
+.career-banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-title-banner h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #11143a;
+  margin: 0;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* --- Main Layout Grid Wrapper Card --- */
+.content-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.career-grid-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar-column {
+  width: 25%;
+  flex: 0 0 25%;
+  box-sizing: border-box;
+}
+
+.content-column {
+  width: 75%;
+  flex: 0 0 75%;
+  box-sizing: border-box;
+}
+
+/* --- Left Sidebar Tab Selector Panels --- */
+.sidebar-menu {
+  border-right: 1px solid #e2e8f0;
+  height: 100%;
+  padding: 20px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.sidebar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  color: #4a5568;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+  transition: background-color 0.3s ease, color 0.2s ease, padding-left 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sidebar-item .arrow-icon {
+  font-size: 12px;
+  color: #94a3b8;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+/* Sidebar Header Label */
+.sidebar-item.header-label {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #444444;
+  background-color: #ffffff;
+  text-transform: uppercase;
+  border-bottom: 1px solid #cbd5e1;
+  transition: all 0.25s ease;
+}
+
+.sidebar-item.header-label:hover {
+  background-color: #f8f9fa;
+  color: #EE1D23;
+}
+
+.sidebar-item.header-label.active {
+  background-color: #003893 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Sub-category active styling */
+.sidebar-item.active:not(.header-label) {
+  background-color: #003893 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.sidebar-item.active:not(.header-label) .arrow-icon {
+  color: #ffffff !important;
+  transform: translateX(4px);
+}
+
+.sidebar-item:hover:not(.header-label):not(.active) {
+  background-color: #f7fafc;
+  color: #EE1D23;
+  padding-left: 24px;
+}
+
+.sidebar-item:hover:not(.header-label):not(.active) .arrow-icon {
+  color: #EE1D23;
+  transform: translateX(3px);
+}
+
+/* --- Right Side Document Text View Container --- */
+.document-pane {
+  padding: 35px;
+  box-sizing: border-box;
+}
+
+.pane-instruction {
+  color: #555555;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.active-pane-text {
+  font-style: italic;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.pane-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #003893;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 10px;
+}
+
+/* Content Pane Animation */
+.content-pane.active-pane {
+  display: block;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* Alert Box Styling */
+.fw-bold {
+  font-weight: 700;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.alert-info-box {
+  background-color: #cff4fc;
+  border: 1px solid #b6effb;
+  color: #055160;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14.5px;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile Responsive Stacking */
+@media (max-width: 768px) {
+  .career-grid-row {
+    flex-direction: column;
+  }
+
+  .sidebar-column,
+  .content-column {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .sidebar-menu {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
+  }
+
+  .document-pane {
+    padding: 20px;
+  }
+}

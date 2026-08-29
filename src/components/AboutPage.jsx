@@ -19,9 +19,6 @@ export default function AboutPage() {
           by SEBON, NEPSE, and DP. Built on financial strength and reliability, 
           we are committed to empowering investors with seamless trading and top-tier services.
         </p>
-
-        {/* Credibility Badges */}
-        
       </div>
     </AboutLayout>
   );

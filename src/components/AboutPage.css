@@ -43,13 +43,7 @@
   margin: 0;
 }
 
-/* Feature Badges Container */
-.badge-wrapper {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  flex-wrap: wrap;
-}
+
 
 /* Individual Feature Badge */
 .badge-pill {

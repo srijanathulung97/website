@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './AboutLayout.css';
 
 const sidebarTabs = [
@@ -10,27 +10,12 @@ const sidebarTabs = [
 ];
 
 export default function AboutLayout({ children }) {
-  const location = useLocation();
-
-  const getHeaderTitle = () => {
-    switch (location.pathname) {
-      case '/about/introduction':
-        return 'INTRODUCTION';
-      case '/about/bod':
-        return 'BOARD OF DIRECTORS';
-      case '/about/team':
-        return 'OUR TEAM';
-      default:
-        return 'ABOUT US';
-    }
-  };
-
   return (
     <div className="about-layout-wrapper">
-      {/* 1. Page Title Banner (Animates first from top) */}
+      {/* 1. Page Title Banner (Fixed Title, animates only once on first load) */}
       <section className="hero-banner">
         <div className="container">
-          <h1 className="hero-title">{getHeaderTitle()}</h1>
+          <h1 className="hero-title">ABOUT US</h1>
         </div>
       </section>
 
@@ -40,7 +25,7 @@ export default function AboutLayout({ children }) {
           <div className="about-card-container">
             <div className="about-grid-row">
               
-              {/* 2. Left Sidebar Pane (Animates second from bottom) */}
+              {/* 2. Left Sidebar Pane (Animates only on initial page load) */}
               <aside className="about-sidebar-pane animate-left-pane">
                 <nav className="sidebar-menu">
                   {sidebarTabs.map((tab) => (
@@ -59,9 +44,9 @@ export default function AboutLayout({ children }) {
                 </nav>
               </aside>
 
-              {/* 3. Right Content Pane (Animates third on entry & re-animates on tab clicks) */}
+              {/* 3. Right Content Pane (No key prop = No animation on tab switches) */}
               <main className="about-content-pane animate-right-pane">
-                <div key={location.pathname} className="key-animated">
+                <div className="content-body">
                   {children}
                 </div>
               </main>

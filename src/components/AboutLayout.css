@@ -37,7 +37,7 @@
   padding-right: 35px;
 }
 
-/* 1. HERO TITLE ANIMATION (Delay: 0.0s) */
+/* Hero Title: Static text that animates only on first page load */
 .hero-title {
   font-size: 32px;
   font-weight: 700;
@@ -75,23 +75,17 @@
   align-items: start;
 }
 
-/* 2. LEFT SIDEBAR PANEL ANIMATION (Delay: 0.2s) */
+/* Entry Animations (Run once on page visit) */
 .animate-left-pane {
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.2s;
 }
 
-/* 3. RIGHT CONTENT PANEL ANIMATION (Delay: 0.4s) */
 .animate-right-pane {
   opacity: 0;
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.4s;
-}
-
-/* Tab Switch Animation (Re-triggers smooth 0.4s fade on right panel content) */
-.key-animated {
-  animation: fadeInUp 0.4s ease-out forwards;
 }
 
 /* --- Sidebar Styling --- */

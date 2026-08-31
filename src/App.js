@@ -16,10 +16,15 @@ import TeamPage from './components/TeamPage';
 import ServicesOverviewPage from './components/ServicesOverviewPage';
 import DepositoryPage from './components/DepositoryPage';
 import BrokeragePage from './components/BrokeragePage';
-import SupportPage from './components/SupportPage';import CareerPage from './components/CareerPage';
+import SupportPage from './components/SupportPage';
+import CareerPage from './components/CareerPage';
 import NoticesPage from './components/NoticesPage';
 import FaqPage from './components/FaqPage';
 import ContactPage from './components/ContactPage';
+
+import AllFormsPage from './components/AllFormsPage';
+import KycFormsPage from './components/KycFormsPage';
+import DematFormsPage from './components/DematFormsPage';
 
 import './App.css';
 
@@ -38,11 +43,16 @@ export default function App() {
           <Route path="/about/bod" element={<BodPage />} />
           <Route path="/about/team" element={<TeamPage />} />
           
-          {/* 2. Added Services Routes */}
-   <Route path="/services" element={<ServicesOverviewPage />} />
-<Route path="/services/depository" element={<DepositoryPage />} />
-<Route path="/services/brokerage" element={<BrokeragePage />} />
-<Route path="/services/support" element={<SupportPage />} />
+          {/* Services Routes */}
+          <Route path="/services" element={<ServicesOverviewPage />} />
+          <Route path="/services/depository" element={<DepositoryPage />} />
+          <Route path="/services/brokerage" element={<BrokeragePage />} />
+          <Route path="/services/support" element={<SupportPage />} />
+
+          {/* Download Routes (Fixed: Removed nested <Routes> container) */}
+          <Route path="/downloads" element={<AllFormsPage />} />
+          <Route path="/downloads/kyc" element={<KycFormsPage />} />
+          <Route path="/downloads/demat" element={<DematFormsPage />} />
 
           <Route path="/careers" element={<CareerPage />} />
           <Route path="/career" element={<CareerPage />} />

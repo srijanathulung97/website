@@ -1,4 +1,27 @@
-/* Layout Wrapper & Hero Banner */
+/* --- KEYFRAME ANIMATIONS --- */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Layout Wrapper & Banner --- */
 .about-layout-wrapper {
   background-color: #f4f6f9;
 }
@@ -7,27 +30,32 @@
   background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
   padding: 35px 0;
   border-bottom: 1px solid #dee2e6;
-  animation: fadeInDown 0.4s ease-out;
-}
-.hero-banner .container {
-  padding-left: 100px;  /* Matches the 35px padding inside .about-card-container */
-  padding-right: 35px; /* Ensures right edge symmetry */
-}
-.hero-title {
-  font-size: 28px;
-  font-weight: 800;
-  color: #0c1b40;
-  margin: 0;
-  letter-spacing: 0.5px;
 }
 
+.hero-banner .container {
+  padding-left: 100px;
+  padding-right: 35px;
+}
+
+/* 1. HERO TITLE ANIMATION (Delay: 0.0s) */
+.hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #11143a;
+  margin: 0;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* --- Content Wrapper & Main Card --- */
 .content-wrapper {
   padding: 40px 0;
- 
 }
+
 .content-wrapper .container {
-  max-width: 1240px; /* Adjust this value down (e.g., 900px or 850px) to make it narrower */
-  margin: 0 auto;   /* Keeps the card centered on the page */
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .about-card-container {
@@ -36,9 +64,10 @@
   border-radius: 8px;
   padding: 35px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
-/* Force Side-by-Side Alignment using CSS Grid */
+/* Grid Layout */
 .about-grid-row {
   display: grid;
   grid-template-columns: 260px 1fr;
@@ -46,7 +75,26 @@
   align-items: start;
 }
 
-/* Sidebar Styles */
+/* 2. LEFT SIDEBAR PANEL ANIMATION (Delay: 0.2s) */
+.animate-left-pane {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* 3. RIGHT CONTENT PANEL ANIMATION (Delay: 0.4s) */
+.animate-right-pane {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+/* Tab Switch Animation (Re-triggers smooth 0.4s fade on right panel content) */
+.key-animated {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+/* --- Sidebar Styling --- */
 .sidebar-menu {
   border: 1px solid #e3e6ea;
   border-radius: 6px;
@@ -62,11 +110,11 @@
   padding: 14px 18px;
   background: #ffffff;
   border-bottom: 1px solid #f0f0f0;
-  color: #333333;
+  color: #4a5568;
   font-weight: 500;
   font-size: 15px;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: background-color 0.3s ease, color 0.2s ease, padding-left 0.3s ease;
 }
 
 .sidebar-btn:last-child {
@@ -74,22 +122,21 @@
 }
 
 .sidebar-btn .arrow {
-  color: #aaaaaa;
-  transition: transform 0.25s ease;
+  color: #94a3b8;
+  transition: transform 0.25s ease, color 0.25s ease;
 }
 
-.sidebar-btn:hover {
-  background-color: #f8f9fa;
-  color: #003893;
+.sidebar-btn:hover:not(.active) {
+  background-color: #f7fafc;
+  color: #EE1D23;
   padding-left: 22px;
 }
 
-.sidebar-btn:hover .arrow {
-  transform: translateX(4px);
-  color: #003893;
+.sidebar-btn:hover:not(.active) .arrow {
+  transform: translateX(3px);
+  color: #EE1D23;
 }
 
-/* Active Selected Tab */
 .sidebar-btn.active {
   background-color: #003893 !important;
   color: #ffffff !important;
@@ -98,17 +145,13 @@
 
 .sidebar-btn.active .arrow {
   color: #ffffff !important;
+  transform: translateX(4px);
 }
 
-/* Dynamic Right Content Animations */
-.key-animated {
-  animation: fadeInUp 0.4s ease-out forwards;
-}
-
-/* Responsive Stacking for Mobile Devices */
+/* Responsive Stacking */
 @media (max-width: 768px) {
   .about-grid-row {
-    grid-template-columns: 1fr; /* Stacks vertically only on mobile screens */
+    grid-template-columns: 1fr;
     gap: 25px;
   }
 }

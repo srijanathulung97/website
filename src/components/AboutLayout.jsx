@@ -27,22 +27,21 @@ export default function AboutLayout({ children }) {
 
   return (
     <div className="about-layout-wrapper">
-      {/* Dynamic Animated Hero Banner */}
+      {/* 1. Page Title Banner (Animates first from top) */}
       <section className="hero-banner">
         <div className="container">
           <h1 className="hero-title">{getHeaderTitle()}</h1>
         </div>
       </section>
 
-      {/* Main White Content Card Container */}
+      {/* Main Content Card Outer Container */}
       <section className="content-wrapper">
         <div className="container">
           <div className="about-card-container">
-            {/* Flex Grid Row to place Sidebar and Content Side-by-Side */}
             <div className="about-grid-row">
               
-              {/* Left Sidebar Pane */}
-              <aside className="about-sidebar-pane">
+              {/* 2. Left Sidebar Pane (Animates second from bottom) */}
+              <aside className="about-sidebar-pane animate-left-pane">
                 <nav className="sidebar-menu">
                   {sidebarTabs.map((tab) => (
                     <NavLink
@@ -60,9 +59,9 @@ export default function AboutLayout({ children }) {
                 </nav>
               </aside>
 
-              {/* Right Content Pane */}
-              <main className="about-content-pane">
-                <div className="key-animated">
+              {/* 3. Right Content Pane (Animates third on entry & re-animates on tab clicks) */}
+              <main className="about-content-pane animate-right-pane">
+                <div key={location.pathname} className="key-animated">
                   {children}
                 </div>
               </main>

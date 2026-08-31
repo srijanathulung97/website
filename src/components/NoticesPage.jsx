@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './NoticesPage.css';
 
 // Import your PDF asset
-import applicationFormPdf from '../assets/Downloads/Application-form-RBB-Securities.pdf';
+import applicationFormPdf from '../assets/Downloads/Application_form_RBB_Securities.pdf';
 
 export default function NoticesPage() {
   // Active Tab State: 'all' | 'notice-1' | 'notice-2'
